@@ -9,10 +9,12 @@
   <div class="col-12">
 
     @if (session()->has('message'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{session()->get('message')}}
-        <button style="color:#FFF;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+    <div class="alert alert-success alert-dismissible text-white" role="alert">
+      <span class="text-sm"><a href="javascript:;" class="alert-link text-white">{{session()->get('message')}}</a></span>
+      <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     @endif
 
     <div class="card my-4">
