@@ -94,9 +94,7 @@ class RequestsController extends Controller
      {
         $requests = Requests::find($id);
         $requests->status = "accepté";
-        
         $id_prod = $requests->product_id;
-
         $produit = Product::find($id_prod);
         if($produit->qte == 0){
             return redirect()->route('demmande')->with('message_danger', 'Le Produit nexiste pas dans le stock');
@@ -106,8 +104,6 @@ class RequestsController extends Controller
             $produit->save();
             return redirect()->route('demmande')->with('message', 'La Demmande à ete accepter');
         }
-
-        
      }
 
      public function refu_dmd()
@@ -121,7 +117,7 @@ class RequestsController extends Controller
         $requests = Requests::find($id);
         $requests->status = "refusé";
         $requests->save();
-        return redirect()->route('demmande');
+        return redirect()->route('demmande')->with('message_danger', 'La demmande à ete refusé');
      }
 
      public function search(Request $request)

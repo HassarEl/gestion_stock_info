@@ -75,24 +75,18 @@ class InventoryController extends Controller
      */
     public function update(Request $request, String $id)
     {
-        // dd($request, $id);
         $inventory = Inventory::find($id);
         $product = Product::find($inventory->product_id);
-
         $inventory->num_marche = $request->num;
         $inventory->updated_at = now();
         $inventory->date_enrg = now();
-
         $product->qte =  $product->qte - $inventory->qte;
         $product->qte =  $product->qte + $request->qte;
         $inventory->qte = $request->qte;
-
         $inventory->designation = $request->designation;
         $inventory->product_id = $request->product;
-        
         $inventory->save();
         $product->save();
-
         return redirect()->route('inventory')->with('message', 'Inventory has been updated Seccessfuly');
     }
 
