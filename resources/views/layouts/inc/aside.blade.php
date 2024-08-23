@@ -36,7 +36,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i style="color:#5d6c85;"  class="bi bi-postcard-fill"></i>
             </div>
-            <span class="nav-link-text ms-1">Demmande</span>
+            <span class="nav-link-text ms-1">Demmandes</span>
           </a>
         </li>
         <li class="nav-item">
@@ -58,11 +58,19 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-dark" href="{{route('stock')}}">
+          <a class="nav-link text-dark" href="{{route('stock.materiel')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i style="color:#7b809a;" class="bi bi-arrow-down-right-circle-fill"></i>
             </div>
-            <span class="nav-link-text ms-1">Stock</span>
+            <span class="nav-link-text ms-1">Stock Materiel</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{{route('stock.fourniture')}}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i style="color:#7b809a;" class="bi bi-arrow-down-right-circle-fill"></i>
+            </div>
+            <span class="nav-link-text ms-1">Stock Fourniture</span>
           </a>
         </li>
         

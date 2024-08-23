@@ -37,7 +37,7 @@ class RequestsController extends Controller
         $requests->full_name = $request->fullname;
         $requests->entite = $request->entite;
         $requests->qte = $request->qte;
-        $requests->date = $request->date;
+        $requests->date = now();
         $requests->product_id = $request->produit;
         $requests->status = "en coure";
 

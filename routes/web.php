@@ -35,7 +35,8 @@ Route::get('/demmande/refu/{id}', [RequestsController::class, 'refu'])->name('de
 
 Route::get('demmande/search',[RequestsController::class, 'search'])->name('search.demmande');
 
-Route::get('/stock', [StockController::class, 'index'])->name('stock');
+Route::get('/stock/materiel', [StockController::class, 'materiel'])->name('stock.materiel');
+Route::get('/stock/fourniture', [StockController::class, 'fourniture'])->name('stock.fourniture');
 
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
 Route::get('/inventory/create', [InventoryController::class, 'create'])->name('inventory.create');

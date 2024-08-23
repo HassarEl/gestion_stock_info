@@ -24,12 +24,15 @@ class HomeController extends Controller
                 return view('home', compact('count_demmande', 'count_demmande_en_coure', 'produit_stock'));
             } else if(Auth::user()->role=='user')
             {
-                $produit = Product::all();
-                return view('front', compact('produit'));
+
+                $materiel = Product::where('type', 'materiel')->get();
+                $fourniture = Product::where('type', 'fourniture')->get();
+                return view('front', compact('materiel', 'fourniture'));
             }
         } else {
-            $produit = Product::all();
-            return view('front', compact('produit'));
+                $materiel = Product::where('type', 'materiel')->get();
+                $fourniture = Product::where('type', 'fourniture')->get();
+                return view('front', compact('materiel', 'fourniture'));
         }
     }
     

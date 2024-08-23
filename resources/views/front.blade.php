@@ -84,60 +84,18 @@
 				<h1 class="lead">Ministère de l'Equipement et de l'Eau</h1>
 				<p class="tagline" style="font-size: 1.3em">Le Ministère de l’Équipement et de l’Eau prend en charge des secteurs vitaux qui jouent un rôle essentiel dans le développement économique et social du pays, participe directement ou indirectement à l’aménagement du territoire, à la réduction des disparités régionales et à la création d’un environnement propice pour l’investissement.
 					Sa mission consiste à élaborer, mettre en œuvre et coordonner la politique du Gouvernement relative au secteur des infrastructures routières, portuaires, hydrauliques et de la météorologie.</p>
-				<p><a class="btn btn-default btn-lg" href="{{Route('login')}}">LogIn</a></p>
+					@if (Route::has('login'))
+						@auth
+						@else
+							<p><a class="btn btn-default btn-lg" href="{{Route('login')}}">LogIn</a></p>
+						@endauth
+					@endif
+					
+
 			</div>
 		</div>
 	</header>
 	<!-- /Header -->
-
-	<!-- Intro -->
-	<div class="container text-center">
-		<br> <br>
-		<h2 class="thin">Demander De Materiel Et Fourniture</h2>
-		<p class="text-muted">
-			The difference between involvement and commitment is like an eggs-and-ham breakfast:<br> 
-			the chicken was involved; the pig was committed.
-		</p>
-	</div>
-	<!-- /Intro-->
-		
-	<!-- Highlights - jumbotron -->
-	<div class="jumbotron top-space">
-		<div class="container">
-			
-			<h3 class="text-center thin">Reasons to use this template</h3>
-			
-			<div class="row">
-				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4><i class="fa fa-cogs fa-5"></i>Bootstrap-powered</h4></div>
-					<div class="h-body text-center">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aliquid adipisci aspernatur. Soluta quisquam dignissimos earum quasi voluptate. Amet, dignissimos, tenetur vitae dolor quam iusto assumenda hic reprehenderit?</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4><i class="fa fa-flash fa-5"></i>Fat-free</h4></div>
-					<div class="h-body text-center">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, commodi, sequi quis ad fugit omnis cumque a libero error nesciunt molestiae repellat quos perferendis numquam quibusdam rerum repellendus laboriosam reprehenderit! </p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4><i class="fa fa-heart fa-5"></i>Creative Commons</h4></div>
-					<div class="h-body text-center">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, vitae, perferendis, perspiciatis nobis voluptate quod illum soluta minima ipsam ratione quia numquam eveniet eum reprehenderit dolorem dicta nesciunt corporis?</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4><i class="fa fa-smile-o fa-5"></i>Author's support</h4></div>
-					<div class="h-body text-center">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, excepturi, maiores, dolorem quasi reprehenderit illo accusamus nulla minima repudiandae quas ducimus reiciendis odio sequi atque temporibus facere corporis eos expedita? </p>
-					</div>
-				</div>
-			</div> <!-- /row  -->
-		
-		</div>
-	</div>
-	<!-- /Highlights -->
-
 	<!-- container -->
 	<div class="container">
 
@@ -160,24 +118,28 @@
 					</div>
 					<div style="margin-bottom: 30px;" class="row">
 						<div class="col-lg-6">
-							<label for="produit" class="form-label">Produit</label>
+							<label for="produit" class="form-label">Materiel</label>
                     		<select class="form-select" name="produit">
-								<option selected>Select product</option>
-								@foreach ($produit as $item)
+								<option selected>Select Materiel</option>
+								@foreach ($materiel as $item)
 									<option value="{{$item->id}}">{{$item->name}} --- {{$item->designation}}</option>
 								@endforeach
                       		</select>
 						</div>
 						<div class="col-lg-6">
-							<label for="qte" class="form-label">Quantité</label>
-							<input type="number" min="0" class="border border-bottom-0 form-control" name="qte" id="qte" placeholder="Enter La quantite" required>
+							<label for="produit" class="form-label">Fourniture</label>
+                    		<select class="form-select" name="produit">
+								<option selected>Select Fourniture</option>
+								@foreach ($fourniture as $item)
+									<option value="{{$item->id}}">{{$item->name}} --- {{$item->designation}}</option>
+								@endforeach
+                      		</select>
 						</div>
 					</div>
-					<div style="margin-bottom: 30px;" class="row">
-						
+					<div class="row">
 						<div class="col-lg-6">
-							<label for="entite" class="form-label">Date</label>
-							<input type="date" class="border border-bottom-0 form-control" name="date" id="date" required>
+							<label for="qte" class="form-label">Quantité</label>
+							<input type="number" min="0" class="border border-bottom-0 form-control" name="qte" id="qte" placeholder="Enter La quantite" required>
 						</div>
 					</div>
 					<div style="margin-bottom: 30px;" class="row">
@@ -210,82 +172,7 @@
 		</div>
 	</section>
 	<!-- /social links -->
-
-
-	<footer id="footer" class="top-space">
-
-		<div class="footer1">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Contact</h3>
-						<div class="widget-body">
-							<p>+234 23 9873237<br>
-								<a href="mailto:#">some.email@somewhere.com</a><br>
-								<br>
-								234 Hidden Pond Road, Ashland City, TN 37015
-							</p>	
-						</div>
-					</div>
-
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Follow me</h3>
-						<div class="widget-body">
-							<p class="follow-me-icons">
-								<a href=""><i class="fa fa-twitter fa-2"></i></a>
-								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
-								<a href=""><i class="fa fa-github fa-2"></i></a>
-								<a href=""><i class="fa fa-facebook fa-2"></i></a>
-							</p>	
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<h3 class="widget-title">Text widget</h3>
-						<div class="widget-body">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
-							<p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-
-		<div class="footer2">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="simplenav">
-								<a href="#">Home</a> | 
-								<a href="about.html">About</a> |
-								<a href="sidebar-right.html">Sidebar</a> |
-								<a href="contact.html">Contact</a> |
-								<b><a href="signup.html">Sign up</a></b>
-							</p>
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="text-right">
-								Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
-							</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-
-	</footer>	
 		
-
-
-
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

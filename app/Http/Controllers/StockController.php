@@ -18,6 +18,17 @@ class StockController extends Controller
         return view('layouts.stocks.index', compact('produits'));
     }
 
+    public function materiel()
+    {
+        $produits = Product::where('qte', '>', 0)->where('type', 'materiel')->get();
+        return view('layouts.stocks.index', compact('produits'));
+    }
+
+    public function fourniture()
+    {
+        $produits = Product::where('qte', '>', 0)->where('type', 'fourniture')->get();
+        return view('layouts.stocks.index', compact('produits'));
+    }
     /**
      * Show the form for creating a new resource.
      */
