@@ -22,7 +22,7 @@
         <div class="bg-gradient-secondary shadow-secondary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
           <h6 class="text-white text-capitalize ps-3 mx-4">Marché</h6>
           <div class="col-lg-4">
-            <form method="GET" action="{{route('search.product')}}" class="d-flex align-items-center" role="search">
+            <form method="GET" action="{{route('search.inventory')}}" class="d-flex align-items-center" role="search">
               <input style="color:#FFF; border-top: 1px solid #FFF; box-shadow: 3px 6px 18px 2px rgba(0, 0, 0, 0.2);" class="form-control col-3" name="query" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-success col-3" style="margin-bottom: 0px" type="submit">Search</button>
             </form>

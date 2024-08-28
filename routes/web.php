@@ -26,6 +26,7 @@ Route::get('produit/search',[ProductController::class, 'search'])->name('search.
 
 
 Route::get('/demmande', [RequestsController::class, 'index'])->name('demmande');
+Route::get('/demmande/create', [RequestsController::class, 'create'])->name('demmande.create');
 Route::post('/demmande/create', [RequestsController::class, 'store'])->name('demmande.store');
 Route::get('/demmande/show/{id}', [RequestsController::class, 'show'])->name('demmande.show');
 Route::get('/demmande/accepte', [RequestsController::class, 'acc_dmd'])->name('demmande.accepte');
@@ -44,6 +45,7 @@ Route::post('/inventory/create', [InventoryController::class, 'store'])->name('i
 Route::get('/inventory/show/{id}', [InventoryController::class, 'show'])->name('inventory.show');
 Route::get('/inventory/edit/{id}', [InventoryController::class, 'edit'])->name('inventory.edit');
 Route::post('/inventory/edit/{id}', [InventoryController::class, 'update'])->name('inventory.update');
+Route::get('inventory/search',[InventoryController::class, 'search'])->name('search.inventory');
 
 });
 

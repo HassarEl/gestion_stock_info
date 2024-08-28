@@ -29,13 +29,17 @@
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
         <div class="bg-gradient-secondary shadow-secondary border-radius-lg pt-4 pb-3 row">
           <h6 class="text-white text-capitalize ps-3 mx-4 col-lg-3">Demamndes</h6>
-          <div class="col-lg-6">
+          <div class="col-lg-3">
             <form method="GET" action="{{route('search.demmande')}}" class="d-flex align-items-center" role="search">
               <input style="color:#FFF; border-top: 1px solid #FFF; box-shadow: 3px 6px 18px 2px rgba(0, 0, 0, 0.2);" class="form-control col-3" name="query" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-success col-3" style="margin-bottom: 0px" type="submit">Search</button>
             </form>
           </div>
+          <div style="position: absolute;right:0;" class="col-lg-3">
+            <a href="{{route('demmande.create')}}" class="mx-4 btn btn-info">Ajouter</a>
+          </div>
         </div>
+        
       </div>
       <div class="card-body px-0 pb-2">
         <div class="table-responsive p-0">

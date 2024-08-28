@@ -97,4 +97,14 @@ class InventoryController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $inventorys = Inventory::where('num_marche', 'like', '%' . $query . '%')
+            ->orWhere('designation', 'like', '%' . $query . '%')
+            ->orWhere('date_enrg', 'like', '%' . $query . '%')
+            ->get();
+        return view('layouts.inventory.index', compact('inventorys'))->with('search_results', true);
+    }
 }

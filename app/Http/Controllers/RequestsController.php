@@ -24,7 +24,9 @@ class RequestsController extends Controller
      */
     public function create()
     {
-        //
+        $materiel = Product::where('type', 'materiel')->get();
+        $fourniture = Product::where('type', 'fourniture')->get();
+        return view('layouts.demmande.create', compact('materiel', 'fourniture'));
     }
 
     /**
